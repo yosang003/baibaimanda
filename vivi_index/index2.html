@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+     
+    <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="js/template.js"></script>
+
+  </head>
+  <body>
+      
+  <header>
+    <div class="headbg">
+
+      <div class="topBar">
+        <ul class="pull_right"> 
+          <li><a href="#">首页</a></li>
+          <li><a href="#">登录</a></li>
+          <li><a href="#">注册</a></li>
+        </ul>
+      </div>
+      <img src="img/logo.png">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">热门</a></li>
+        <li><a href="#">最新</a></li>
+        <li><a href="#">店铺</a></li>
+        <li><a href="#">达人</a></li>
+       
+      </ul>
+      <a class="publish pull_left" href="#">发布</a>
+    </nav>
+  </header>
+
+  <div class="wrapper">
+    <div class="messageWrapper pull_left">
+     <div id="content"></div>
+
+
+      <!-- <div class="messagge pull_left">
+     <div class="portrait pull_left">
+       <img src="img/portrait1.jpg">
+     </div>
+      <div class="messageContain pull_left">
+
+      <div class="messageBox">
+        <div class="boxStyle pull_left"></div>
+
+         <div class="imgMessage pull_right">
+        <p class="imgTitle pull_left">软软黄油小面包</p>
+         <img src="img/img1.jpg" alt="" class="boxImg pull_left">
+           <p class="descrip pull_right">软软黄油小面包，一口下去就满哒！</p>
+           <p class="date pull_right">-----date</p>
+         <div class="clearfix"></div>
+        <span class="detai">*</span>
+        <span class="tag">
+          <a href="#">标签</a>
+          <a href="#">店铺名</a>
+         
+          </span>
+
+        <ul class="excute">
+          <li><a href="#">热度</a></li>
+           <li><a href="#">评论</a></li>
+            <li><a href="#">分享</a></li>
+             <li><a href="#">推荐</a></li>
+        </ul>
+      </div>      
+      </div>
+      </div>  
+    </div> -->
+
+      <!-- <div class="messagge pull_left">
+     <div class="portrait pull_left">
+       <img src="img/portrait1.jpg">
+     </div>
+      <div class="messageContain pull_left">
+
+      <div class="messageBox">
+        <div class="boxStyle pull_left"></div>
+
+         <div class="imgMessage pull_right">
+        <p class="imgTitle pull_left">软软黄油小面包</p>
+         <img src="img/img1.jpg" alt="" class="boxImg pull_left">
+           <p class="descrip pull_right">软软黄油小面包，一口下去就满哒！</p>
+         <div class="clearfix"></div>
+        <span class="detai">*</span>
+        <span class="tag">甜点</span>
+
+        <ul class="excute">
+          <li><a href="#">热度</a></li>
+           <li><a href="#">评论</a></li>
+            <li><a href="#">分享</a></li>
+             <li><a href="#">推荐</a></li>
+        </ul>
+      </div>      
+      </div>
+      </div>  
+    </div> -->
+  
+  <div id="pageGro" class="cb">
+  <div class="pageUp">上一页</div>
+    <div class="pageList">
+        <ul>
+           <!--  <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li> -->
+        </ul>
+    </div>
+    <div class="pageDown">下一页</div>
+</div>
+
+
+
+    </div>
+
+
+<div class="sort pull_right">
+  <p class="sortTitle">TOP榜</p>
+  <ul class="pull_left">
+    <li><a href="#">黄油小面包</a></li>
+    <li><a href="#">黄油小面包</a></li>
+    <li><a href="#">黄油小面包</a></li>
+    <li><a href="#">黄油小面包</a></li>
+    <li><a href="#">黄油小面包</a></li>
+    <li><a href="#">黄油小面包</a></li>
+  </ul>
+</div>
+
+
+  </div>
+<div class="clearfix"></div>
+
+<footer>
+ <ul>
+   <li>关于我们</li>
+    <li>关于我们</li>
+     <li>关于我们</li>
+      <li>关于我们</li>
+ </ul>
+</footer>
+<div class="bodyMask hide">
+  
+</div>
+
+  <div class="publishAlert hide">
+    <p class="notice">有什么新发现呀</p>
+    <div class="publishAlertBox">
+    <form>
+      <input type="text" placeholder="标题 #标签#" class="messageTitle">
+      <div class="functionBar">
+        <ul>
+          <li><a href="#">B</a></li>
+           <li><a href="#">U</a></li>
+            <li><a href="#">abc</a></li>
+             <li><a href="#">I</a></li>
+             <li><a href="#"></a></li>
+             <li><a href="#">@</a></li>
+        </ul>
+      </div>
+      <input type="button"  value="close" class="close">
+
+    </form>
+      
+    </div>
+  
+  </div>
+
+   <script type="text/html" id="mytest">
+     {{each dynamic as value i}} 
+    <div class="messagge pull_left">
+     <div class="portrait pull_left">
+       <img src="img/portrait1.jpg">
+     </div>
+      <div class="messageContain pull_left">
+
+      <div class="messageBox">
+        <div class="boxStyle pull_left"></div>
+
+         <div class="imgMessage pull_right">
+        <p class="imgTitle pull_left">{{value.title}}</p>
+         <img src="img/img1.jpg" alt="" class="boxImg pull_left">
+           <p class="descrip pull_right">{{value.descrip}}</p>
+         <div class="clearfix"></div>
+        <span class="detai">*</span>
+        <span class="tag">value.tag</span>
+
+        <ul class="excute">
+        <li><a href="#">❤</a></li>
+          <li><a href="#">热度</a></li>
+           <li><a href="#">评论</a></li>
+            <li><a href="#">分享</a></li>
+             <li><a href="#">推荐</a></li>
+        </ul>
+      </div>      
+      </div>
+      </div>  
+    </div>
+    {{/each}}
+    </script>
+   <script type="text/javascript">
+  //   $(function(){ 
+
+  //     $.ajax({
+  //       url:'myjson/test.json',
+  //       type:'GET',
+  //       dataType:'json',
+  //       success:function(data){
+
+  //         var myhtml="";
+  //         //ajax结合模板引擎使用
+  //         //<!-- 渲染模板 -->
+  //         myhtml+=template('mytest',data);
+  //         $('#content').html(myhtml);
+  //       },
+  //       error:function(){
+  //         alert("cuowu")
+  //       }
+  //     })
+  //   })
+    </script>
+     <script type="text/javascript" src="js/pageGroup.js"></script>
+  </body>
+</html>
