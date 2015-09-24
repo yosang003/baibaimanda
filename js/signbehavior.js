@@ -507,7 +507,7 @@ $('#login-btn').on("click",function(){
 		}
 		//向后台发送请求
 		$.ajax({
-			url:'myjson/test.json',
+			url:'testjson/signreturn.json',
 			type:'GET',
 			 data:config,
 			dataType:'json',
@@ -516,6 +516,16 @@ $('#login-btn').on("click",function(){
 				{
 					alert("登录成功")
 					//如果成功后台将返回所需的用户信息：邮箱，用户名,再跳转至新的页面
+					//JSON.stringify()
+					var personconfig={
+						"ret":data.ret,
+						"username":data.username,
+						"img":data.img,
+						"sentence":data.sentence
+					}
+					sessionStorage.data=JSON.stringify(personconfig);
+					sessionStorage.setItem("state","1");
+					window.location.href = "index.html";
 					
 				}
 				else if(data.ret==-1)
