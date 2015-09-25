@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Jquery实现微博分享评论表情特效</title>
+	<link rel="stylesheet" href="css/rl_exp.css" />
+	<style type="text/css">
+	.comment-main{
+		display:inline-block;*display:inline;zoom:1;width:600px;margin:0 auto;border:1px solid #ddd;background:#eee;padding:20px;border-radius:3px;
+		text-align:left;
+	}
+	.comment-main textarea{width:100%;border:1px solid #dcdcdc;}
+	.comment-main textarea:focus{outline:none;border-color:#4bf;}
+	.comment-main a{font-size:12px;text-decoration:none;color:#09c;}
+	.comment-main a:hover{color:#E10602;}
+</style>
+</head>
+<body>
+<div style="text-align:center;" id="xm">
+	<div id="comment" class="comment-main">
+		<textarea name="test" id="rl_exp_input" cols="30" rows="10"></textarea>
+		<a href="javascript:void(0);" id="rl_exp_btn">表情</a>
+	</div>
+	<div class="rl_exp" id="rl_bq" style="display:none;">
+		<ul class="rl_exp_tab clearfix">
+			<li><a href="javascript:void(0);" class="selected">默认</a></li>
+			<li><a href="javascript:void(0);">拜年</a></li>
+			<li><a href="javascript:void(0);">浪小花</a></li>
+			<li><a href="javascript:void(0);">暴走漫画</a></li>
+		</ul>
+		<ul class="rl_exp_main clearfix rl_selected"></ul>
+		<ul class="rl_exp_main clearfix" style="display:none;"></ul>
+		<ul class="rl_exp_main clearfix" style="display:none;"></ul>
+		<ul class="rl_exp_main clearfix" style="display:none;"></ul>
+		<a href="javascript:void(0);" class="close">×</a>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/rl_exp.js"></script>
+<script type="text/javascript">
+$(function(){
+});
+</script>
+</body>
+</html>
