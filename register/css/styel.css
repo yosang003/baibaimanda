@@ -1,0 +1,141 @@
+html,body{height:100%;}
+body{
+	padding: 0;
+	margin: 0;
+}
+h1{
+	padding: 0;
+	margin: 0;
+}
+ul,li{
+  list-style: none;
+}
+a{
+  cursor:pointer;
+}
+.clearfix:after{
+content: "";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden; 
+}
+.wrap{
+    /*display: none;*/
+	width: 100%;
+	height: 100%;
+  /*border: 1px solid red;*/
+	background: url(../img/bg1.jpg);
+}
+/*----------邮箱自动提示-------------*/
+.auto-tip {
+  border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    background-color: #cbe2fa;
+    outline: 0 none;
+    margin-left: 38px;
+}
+.auto-tip li{
+  width: 400px;
+  margin-left: -40px;
+  height:22px;
+  line-height:22px;
+  font-size:14px;
+  padding-left: 14px;
+}
+.auto-tip li.hoverBg{
+  background:#2e9fff;
+  cursor:pointer;
+}
+.hidden {
+  display:none;
+}
+/*====================登陆框体===============*/
+.login-box{
+
+  width: 440px;
+  margin: 0 auto;
+  padding:20px 20px;
+  background-color:#000;
+ /* filter:alpha(opacity=50);
+  opacity:0.5;*/
+  background:rgba(0,0,0,0.5);
+  /*border: 1px solid red;*/
+}
+.lohin-title{
+  text-align: center;
+  margin: 0 auto;
+  padding: 60px 0;
+  color: #fff;
+  /*border-top: 1px solid #eaebec;*/
+}
+.input_group{
+  width: 400px;
+  height: 45px;
+  position: relative;
+    margin-top: 20px;
+}
+.input_group input{
+  /*text-align: center;*/
+  background-color: #fff;
+  /*background-color: rgba(255,255,255,0.5);*/
+   width: 400px;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+  padding-left: 20px;
+  /*box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);*/
+}
+.input_group input.surecode{
+  width: 250px;
+  /*text-align: left;*/
+  padding-left: 20px;
+}
+.input_group .show-surecode{
+  width: 100px;
+  border: 1px solid #ccc;
+  height: 45px;
+  margin-top: -10px;
+}
+.surelogin-prompt .login-prompt{
+  left: 200px;
+  top: 10px;
+} 
+.input_group input:focus{
+  border:1px solid #89d1e6;
+}
+.login-prompt{
+  position: absolute;
+  left: 360px;
+  top: 15px;
+  display:none;
+}
+.btn{
+  margin-top: 20px;
+  width: 400px;
+  height: 45px;
+  background-color: #54aaf9;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.btn:hover{
+  background-color: #224490;
+  color: #fff;
+}
+.login-link{
+  margin-top: 20px;
+}
+.login-link .checkbox{
+  color: #fff;
+  margin-top: 0px;
+}
+.gosign{
+  color: #fff;
+}
+/*====================底部====================*/
+.footer{
+	height: 200px;
+	background-color: #000;
+}
