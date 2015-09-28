@@ -10,10 +10,19 @@ $(function($){
 
 function initPage(){
 	    //当前登录者的数据
-		var personconfig=JSON.parse(sessionStorage.data);
-		$(".currentPer").html(personconfig.username);
-		$(".perImg").attr("src",personconfig.img)
-		$(".say .nickname").html(personconfig.username);
-		$(".say .sentence").html(personconfig.signature);
+	    $.ajax({
+			url:'testjson/indexreturn.json',
+			type:'GET',
+			 data:{"jsessionid":mycookies},
+			dataType:'json',
+			success:function(data){
+				//将得到的数据渲染到页面上
+				$(".currentPer").html(data.username);
+				$(".perImg").attr("src",data.img)
+				$(".say .nickname").html(data.username);
+				$(".say .sentence").html(data.signature);
+			}
+		})
+		
 
 	}

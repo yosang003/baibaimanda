@@ -515,18 +515,8 @@ $('#login-btn').on("click",function(){
 				if(data.ret==1)
 				{
 					alert("登录成功")
-					//如果成功后台将返回所需的用户信息：邮箱，用户名,再跳转至新的页面
-					//JSON.stringify()
-					var personconfig={
-						"ret":data.ret,
-						"username":data.username,
-						"img":data.img,
-						"sentence":data.sentence
-					}
-					sessionStorage.data=JSON.stringify(personconfig);
-					sessionStorage.setItem("state","1");
+					//如果成功后台将跳转至新的页面,与此同时后台在相应中设置cookie jsessionid的值
 					window.location.href = "index.html";
-					
 				}
 				else if(data.ret==-1)
 				{

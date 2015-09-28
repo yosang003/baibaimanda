@@ -280,14 +280,43 @@ $(function(){
 })
 
 function initPage(){
-	if (sessionStorage.getItem("state")==1) {
-	    	//当前登录者的数据
-			var personconfig=JSON.parse(sessionStorage.data);
-			$(".nosigin").addClass("hide");
-			$(".nickname").html(personconfig.username);
-			$(".nickname").removeClass('hide');
-		    };
+	// ------这里是前端设置的jsessionid的值，这个cookie应该由后台设置，这里是模拟
+	setcookie("jsessionid","1");
+	// -----------------------------
+	
+	var mycookies=getcookie("jsessionid");
+	//首先判断是否已经登录，cookie是否有jsessionid这个属性
+	if(mycookies!=" "){
+          //向后台发送请求
+          $.ajax({
+			url:'testjson/indexreturn.json',
+			type:'GET',
+			 data:{"jsessionid":mycookies},
+			dataType:'json',
+			success:function(data){
+				//将得到的数据渲染到页面上
+				$(".nosigin").addClass("hide");
+				$(".nickname").html(data.username);
+				$(".nickname").removeClass('hide');
+			}
+		})
 	}
+	 	    
+}
+	//前端设置一个cookie
+	function setcookie(name,value)
+	{
+		var cookie=name+"="+encodeURIComponent(value);
+		document.cookie=cookie;
+	}
+	//前端获取cookie的值
+	 function getcookie(objname){//获取指定名称的cookie的值
+          var arrstr = document.cookie.split("; ");
+          for(var i = 0;i < arrstr.length;i ++){
+          var temp = arrstr[i].split("=");
+          if(temp[0] == objname) return unescape(temp[1]);
+      }
+}
 
 //----------------------发表----------------------------------------------------
 
