@@ -9,10 +9,6 @@ $(function($){
 })
 
 function initPage(){
-	// ------这里是前端设置的jsessionid的值，这个cookie应该由后台设置，这里是模拟
-	setcookie("jsessionid","1");
-	// -----------------------------
-	
 	var mycookies=getcookie("jsessionid");
 	    $.ajax({
 			url:'testjson/indexreturn.json',

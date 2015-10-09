@@ -4,20 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Bootstrap 101 Template</title>
-     
-    <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <title>首页</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
-<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
-<script type="text/javascript" src="js/template.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="css/webuploader.css">
   </head>
   <body>
-      
   <header>
     <div class="headbg">
 
@@ -32,7 +26,7 @@
             </ul>
           </li>
           <li class="nosigin">您还未登陆</li>
-          <li><a class="gosignin nosigin" href="#">登录</a></li>
+          <li><a class="gosignin nosigin" href="signin.html">登录</a></li>
           <li><a class="gosignup nosigin" href="#">注册</a></li>
         </ul>
       </div>
@@ -62,7 +56,7 @@
           <div class="pageDown">下一页</div>
       </div>
     </div>
- <!--  <div class="sort pull_right">
+  <div class="sort pull_right">
     <p class="sortTitle">TOP榜</p>
     <ul class="pull_left">
       <li><a href="#">黄油小面包</a></li>
@@ -73,7 +67,7 @@
       <li><a href="#">黄油小面包</a></li>
     </ul>
   </div>
-</div> -->
+</div>
 <div class="clearfix"></div>
 
 <footer>
@@ -84,33 +78,43 @@
       <li>关于我们</li>
  </ul>
 </footer>
-<div class="bodyMask hide">
-  
+<!-- 遮盖 -->
+<div class="bodyMask hide">  
 </div>
-
-  <div class="publishAlert hide">
-    <p class="notice">有什么新发现呀</p>
-    <div class="publishAlertBox">
-    <form>
-      <input type="text" placeholder="标题 #标签#" class="messageTitle">
-      <div class="functionBar">
-        <ul>
-          <li><a href="#">B</a></li>
-           <li><a href="#">U</a></li>
-            <li><a href="#">abc</a></li>
-             <li><a href="#">I</a></li>
-             <li><a href="#"></a></li>
-             <li><a href="#">@</a></li>
-        </ul>
+  <div class="publishAlert">
+    <p class="notice">有什么新发现呀</p> 
+    <div class="addimg"> 
+      <form id="form1" runat="server" method="post" enctype="multipart/form-data">
+         <input type="file">
+      </form>
+      <!-- <div id="uploader-demo">
+        <div id="filelist" class="uploader-list"></div>
+        <div id="filePicker">上传文件</div>
+      </div> -->
+     
+   </div> 
+    <div style="text-align:center;" id="xm">
+      <div id="comment" class="comment-main">
+        <textarea name="test" id="rl_exp_input" cols="30" rows="10"></textarea>
+        <a href="javascript:void(0);" id="rl_exp_btn">表情</a>
       </div>
-      <input type="button"  value="close" class="close">
-
-    </form>
-      
+      <div class="rl_exp" id="rl_bq" style="display:none;">
+        <ul class="rl_exp_tab clearfix">
+          <li><a href="javascript:void(0);" class="selected">默认</a></li>
+          <li><a href="javascript:void(0);">拜年</a></li>
+          <li><a href="javascript:void(0);">浪小花</a></li>
+          <li><a href="javascript:void(0);">暴走漫画</a></li>
+        </ul>
+        <ul class="rl_exp_main clearfix rl_selected"></ul>
+        <ul class="rl_exp_main clearfix" style="display:none;"></ul>
+        <ul class="rl_exp_main clearfix" style="display:none;"></ul>
+        <ul class="rl_exp_main clearfix" style="display:none;"></ul>
+        <a href="javascript:void(0);" class="close">×</a>
+      </div>
     </div>
-  
+    <input type="button"  value="close" class="boxclose">
+    <input type="button" value="发表" class="fabiao">
   </div>
-
    <script type="text/html" id="mytest">
      {{each dynamic as value i}} 
     <div class="messagge pull_left">
@@ -143,27 +147,12 @@
     </div>
     {{/each}}
     </script>
-   <script type="text/javascript">
-  //   $(function(){ 
-
-  //     $.ajax({
-  //       url:'myjson/test.json',
-  //       type:'GET',
-  //       dataType:'json',
-  //       success:function(data){
-
-  //         var myhtml="";
-  //         //ajax结合模板引擎使用
-  //         //<!-- 渲染模板 -->
-  //         myhtml+=template('mytest',data);
-  //         $('#content').html(myhtml);
-  //       },
-  //       error:function(){
-  //         alert("cuowu")
-  //       }
-  //     })
-  //   })
-    </script>
+    <script type="text/javascript" src="js/iframe/jquery-1.8.3.min.js" ></script>
+    <script type="text/javascript" src="js/iframe/template.js"></script>
+    <script type="text/javascript" src="js/animation/fenye.js"></script>
      <script type="text/javascript" src="js/index.js"></script>
+     <script type="text/javascript" src="js/webuploader.js"></script>
+     <script type="text/javascript" src="js/upload.js"></script>
+     <script type="text/javascript" src="js/animation/expression.js"></script>
   </body>
 </html>

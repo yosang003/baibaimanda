@@ -3,10 +3,12 @@
 通用类
  */
 .hide{
-	display: none;
+	/*display: none;*/
+	height: 0;
 }
-
-
+/*.show{
+	height: 
+}*/
 .pull_left{
 	float: left;
 }
@@ -191,15 +193,6 @@ a.publish{
 	font-size: 20px;
 	color: gray;
 }
-.publishAlert{
-	position: absolute;
-	z-index: 3;
-	left: 28%;
-	top: 20%;
-	width: 560px;
-	height: 495px;
-	background-color: #a9cedc;
-}
 .bodyMask{
 	position: absolute;
 	left: 0;
@@ -208,19 +201,12 @@ a.publish{
 	opacity: 0.6;
 	width: 100%;
 	height: 100%;
-	background-color: black;
-
-	
+	background-color: black;	
 }
-.publishAlertBox p{
-	font-family: SimYou;
-	color: #6a8690;
-
-}
-.publishAlertBox input{
+/*.publishAlertBox input{
 	width: 100%;
 	background-color: transparent;
-}
+}*/
 .functionBar{
 	width: 100%;
 	height: 20px;
@@ -298,4 +284,116 @@ footer{
  background:url(images/pageDown.png) 46px 6px no-repeat;
 }
 
-/*-----------状态栏--------*/
+/*-----------发布栏--------*/
+.publishAlert{
+	/*margin: 0 auto;*/
+	position: absolute;
+	z-index: 3;
+	left: 28%;
+	top: 20%;
+	width: 560px;
+	height: 495px;
+	background-color: #a9cedc;
+	display: none;
+	/*height: 0;*/
+	/*overflow: hidden;*/
+}
+.publishAlertBox p{
+	font-family: SimYou;
+	color: #6a8690;
+}
+.addimg{
+	width:500px;
+	height:100px;
+	margin: 0 auto;
+	background-color: #fff;
+}
+.addtext{
+	width:500px;
+	height:200px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.aTextbox{
+	width:500px;
+	height:150px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+/*-----------------------------表情---------------------------------------*/
+  .comment-main{
+    display:inline-block;
+    *display:inline;
+    zoom:1;
+    width:500px;
+    margin:0 auto;
+    margin-top: 20px;
+    border:1px solid #ddd;
+    background:#eee;
+    padding:20px;
+    border-radius:3px;
+    text-align:left;
+  }
+  .comment-main textarea{
+    width:100%;
+    border:1px solid #dcdcdc;
+  }
+  .comment-main textarea:focus{
+    outline:none;
+    border-color:#4bf;
+  }
+  .comment-main a{
+    font-size:12px;
+    text-decoration:none;
+    color:#09c;
+  }
+  .comment-main a:hover{
+    color:#E10602;
+  }
+  .rl_exp{
+  margin:0 auto;position:fixed;width:482px;
+  padding:20px;border: 1px solid #D0D0D0;
+  box-shadow: 0 0 2px 2px #fff inset,1px 1px 0 rgba(127,127,127,0.1);
+  overflow: hidden;background: none repeat scroll 0 0 white;zoom:1;z-index:100;
+}
+/*隐藏浏览器的outline,兼容IE。*/
+.rl_exp a{outline:none;blr:expression(this.onFocus=this.blur());}
+.rl_exp ul{list-style:none;margin:0;padding:0;}
+.rl_exp ul li{display:list-item;}
+.rl_exp ul.rl_exp_tab{
+  margin:-20px -20px 20px;padding:12px 13px 0;list-style:none;
+  border-bottom:1px solid #d0d0d0;border-top:1px solid #fff;
+  background: -moz-linear-gradient(center top , #F6F6F6, #E5E5E5) repeat scroll 0 0 transparent;
+  background: -webkit-gradient(linear,center top ,center bottom,from(#f6f6f6),to(#E5E5E5)) repeat scroll 0 0 transparent;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#E5E5E5');
+}
+.rl_exp ul.rl_exp_tab li{float:left;margin-right:10px;display:list-item;text-align: -webkit-match-parent;}
+.rl_exp ul.rl_exp_tab li a{
+  display: block;padding: 8px 14px;font-size:13px;text-decoration: none;color: #979797;border: 1px solid #c3c3c3;
+  margin-bottom: -1px;
+  background: #E4E4E4;text-shadow: #fff 0 1px;
+}
+.rl_exp ul.rl_exp_tab li a.selected{zoom:1;background: #fff;border-bottom: 1px solid #fff;box-shadow: none;text-shadow: none;}
+
+/*表情内容样式*/
+.rl_exp_main{margin:0;padding:0;}
+.rl_exp_item{
+  cursor:pointer;float:left;border:1px solid red;height:24px;width:24px;overflow:hidden;margin:-1px 0 0 -1px;padding:6px;text-align:center;
+  border-color: #fce089;background: #fef9e7;
+}
+.rl_exp_item:hover{border:1px solid #0095cd;background:#fff9ec;position:relative;z-index:2;}
+.rl_exp_item img{display:inline-block;*zoom:1;border:0;}
+
+.close{
+  position:absolute;right:6px;top:6px;text-decoration:none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;font-size:20px;line-height:12px;
+  color:#000;text-shadow:0 1px 0 #fff;opacity:0.2;filter:alpha(opacity=20);
+}
+.close:hover,.close:focus{
+  color:#000;cursor:pointer;opacity:0.4;filter:alpha(opacity=40);
+}
+/*公共清浮类，摘自bootstrap*/
+.clearfix{*zoom:1;}
+.clearfix:before,.clearfix:after{display:table;line-height:0;content:"";}
+.clearfix:after{clear:both;}

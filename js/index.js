@@ -1,227 +1,4 @@
-// --------------------------------------分页------------------------------------------
-$(function(){
-	//根据总页数判断，如果小于5页，则显示所有页数，如果大于5页，则显示5页。根据当前点击的页数生成
-	//每页5条
-	var pageCount = 11;//模拟后台总页数
-	//生成分页按钮
-	if(pageCount>5){
-		page_icon(1,5,0);
-	}else{
-		page_icon(1,pageCount,0);
-	}
-	
-	//点击分页按钮触发
-	$("#pageGro li").live("click",function(){
-		if(pageCount > 5){
-			var pageNum = parseInt($(this).html());//获取当前页数
-			pageGroup(pageNum,pageCount);
-		}else{
-			$(this).addClass("on");
-			$(this).siblings("li").removeClass("on");
-		}
-	});
-	
-	//点击上一页触发
-	$("#pageGro .pageUp").click(function(){
-		
-		if(pageCount > 5){
-			var pageNum = parseInt($("#pageGro li.on").html());//获取当前页
-			pageUp(pageNum,pageCount);
-		}else{
-			var index = $("#pageGro ul li.on").index();//获取当前页
-			if(index > 0){
-				$("#pageGro li").removeClass("on");//清除所有选中
-				$("#pageGro ul li").eq(index-1).addClass("on");//选中上一页
-			}
-		}
-	});
-	
-	//点击下一页触发
-	$("#pageGro .pageDown").click(function(){
-
-		// 当页数大于5页时
-		if(pageCount > 5){
-			var pageNum = parseInt($("#pageGro li.on").html());//获取当前页--1
-			pageDown(pageNum,pageCount);
-		}else{
-			var index = $("#pageGro ul li.on").index();//获取当前页
-			if(index+1 < pageCount){
-				$("#pageGro li").removeClass("on");//清除所有选中
-				$("#pageGro ul li").eq(index+1).addClass("on");//选中上一页
-			}
-		}
-	});
-
-
-	//发布弹框
-	$(".publish").click(function(event) {
-		$(".publishAlert").removeClass('hide').addClass('animated fadeInRightBig');
-		$(".bodyMask").removeClass('hide');
-			$("body").on('mousewheel',  function(event) {
-			
-			 scrollFunc(event);
-
-			
-		});
-			//火狐下兼容
-		$("body").on('DOMMouseScroll',  function(event) {
-			
-			scrollFunc(event);
-
-			
-		});
-		setTimeout(function(){
-			$(".publishAlert").removeClass('fadeInRightBig').addClass('bounce');
-		}, 600)
-		setTimeout(function(){
-			$(".publishAlert").removeClass('bounce');
-		}, 1200)
-
-	});
-
-	//关闭弹框
-	$(".close").click(function(event) {
-		$(".publishAlert").addClass('animated fadeOutLeftBig');
-		$(".bodyMask").addClass('hide');
-		setTimeout(function(){
-			$(".publishAlert").removeClass('animated fadeOutLeftBig').addClass('hide');
-		}, 600)
-	});
-
-
-
-
-});
-
-//点击跳转页面
-function pageGroup(pageNum,pageCount){
-	switch(pageNum){
-		case 1:
-			page_icon(1,5,0);
-		break;
-		case 2:
-			page_icon(1,5,1);
-		break;
-		case pageCount-1:
-			page_icon(pageCount-4,pageCount,3);
-		break;
-		case pageCount:
-			page_icon(pageCount-4,pageCount,4);
-		break;
-		default:
-			page_icon(pageNum-2,pageNum+2,2);
-		break;
-	}
-}
-
-//根据当前选中页生成页面点击按钮
-function page_icon(page,count,eq){
-	var ul_html = "";
-	for(var i=page; i<=count; i++){
-		ul_html += "<li>"+i+"</li>";
-	}
-	$("#pageGro ul").html(ul_html);
-
-	$("#pageGro ul li").eq(eq).addClass("on");
-	// 根据当前的页数选择要显示的动态
-	//(page-1)*5~(page-1)*5+5,将当前页数发给后台，向后台取数据
-	
-
-var url1='testjson/indextest.json';
-getData(url1,page);
-
-
-
-// $(window).scroll(function () {
-
-
-
-//         var scrollTop = $(this).scrollTop();
-
-//         var scrollHeight = $(document).height();
-//         var windowHeight = $(this).height();
-//         var topLocation=$(".sort").offset().top;
-      
-    
-//         /*if (scrollTop + windowHeight == scrollHeight){*/
-
-//         	if (scrollTop >=3*windowHeight/2){
-
-//         	var url2='testjson/indextest2.json';
-//         	getData(url2,page);
-    
-//         }
-
-//         //固定top榜
-        
-//         if (scrollTop>topLocation) {
-//         	$(".sort").css({
-//         		position: 'fixed',
-//         		top: '0',
-//         		right: '150px'
-//         	});
-
-			
-//         } 
-
-
-      
-//     })
-
-
-
-
-
-
-
-
-
-	
-}
-
-//上一页
-function pageUp(pageNum,pageCount){
-	switch(pageNum){
-		case 1:
-		break;
-		case 2:
-			page_icon(1,5,0);
-		break;
-		case pageCount-1:
-			page_icon(pageCount-4,pageCount,2);
-		break;
-		case pageCount:
-			page_icon(pageCount-4,pageCount,3);
-		break;
-		default:
-			page_icon(pageNum-2,pageNum+2,1);
-		break;
-	}
-}
-
-//下一页
-//pageNum是当前页数
-function pageDown(pageNum,pageCount){
-	switch(pageNum){
-		case 1:
-			page_icon(1,5,1);//到第2页（12345）
-		break;
-		case 2:
-			page_icon(1,5,2);//到第3页（12345）
-		break;
-		case pageCount-1:
-			page_icon(pageCount-4,pageCount,4);
-		break;
-		case pageCount:
-		break;
-		default:
-			page_icon(pageNum-2,pageNum+2,3);
-		break;
-	}
-}
-// --------------------------------------分页------------------------------------------
 //获取数据
-
 function getData(url,page){
 
  $.ajax({
@@ -245,7 +22,42 @@ function getData(url,page){
       })
 }
 
+//发布弹框
+    $(".publish").click(function(event) {
+        // $(".publishAlert").show().addClass('animated fadeInRightBig');
+        $(".publishAlert").show()
+        $(".bodyMask").removeClass('hide');
+            $("body").on('mousewheel',  function(event) {
+            
+             scrollFunc(event);
 
+            
+        });
+            //火狐下兼容
+        $("body").on('DOMMouseScroll',  function(event) {
+            
+            scrollFunc(event);
+
+            
+        });
+        // setTimeout(function(){
+        //     $(".publishAlert").removeClass('fadeInRightBig').addClass('bounce');
+        // }, 600)
+        // setTimeout(function(){
+        //     $(".publishAlert").removeClass('bounce');
+        // }, 1200)
+
+    });
+
+    //关闭弹框
+    $(".boxclose").click(function(event) {
+        // $(".publishAlert").hide().addClass('animated fadeOutLeftBig');
+        $(".publishAlert").hide()
+        $(".bodyMask").addClass('hide');
+        // setTimeout(function(){
+        //     $(".publishAlert").removeClass('animated fadeOutLeftBig').addClass('hide');
+        // }, 600)
+    });
 //弹框弹出后禁止滚动条滚动
 
 function scrollFunc(e){
@@ -262,12 +74,6 @@ function scrollFunc(e){
 
 
 //事件绑定
-$(".gosignin").on("click",function(){
-	window.location.href = "signin.html";
-})
-$(".gosignup").on("click",function(){
-	window.location.href = "signin.html";
-})
 $(".nickname").on("click",function(){
      $(".nickLink").removeClass('hide')
 })
@@ -280,13 +86,9 @@ $(function(){
 })
 
 function initPage(){
-	// ------这里是前端设置的jsessionid的值，这个cookie应该由后台设置，这里是模拟
-	setcookie("jsessionid","1");
-	// -----------------------------
-	
 	var mycookies=getcookie("jsessionid");
 	//首先判断是否已经登录，cookie是否有jsessionid这个属性
-	if(mycookies!=" "){
+	if(mycookies=="1"){
           //向后台发送请求
           $.ajax({
 			url:'testjson/indexreturn.json',
@@ -303,12 +105,7 @@ function initPage(){
 	}
 	 	    
 }
-	//前端设置一个cookie
-	function setcookie(name,value)
-	{
-		var cookie=name+"="+encodeURIComponent(value);
-		document.cookie=cookie;
-	}
+	
 	//前端获取cookie的值
 	 function getcookie(objname){//获取指定名称的cookie的值
           var arrstr = document.cookie.split("; ");
@@ -318,5 +115,130 @@ function initPage(){
       }
 }
 
-//----------------------发表----------------------------------------------------
+//----------------------发表----------------------------------------------
+//向后台发送文字及表情（先假设没有表情）信息
+$(".fabiao").on("click",function(){
+	var fabiaotext=$("#rl_exp_input").val();
+    $.ajax({
+			url:'testjson/fabiaoreturn.json',
+			type:'GET',
+			 data:{"text":fabiaotext},
+			dataType:'json',
+			success:function(data){
+				//将得到的数据渲染到页面上(图片的路径，和发表的文字字符串)
+				alert(data.text);
+				
+			}
+		})
+})
+
+//--------------文件上传-------------------------
+ jQuery(function() {
+    var $ = jQuery,
+        $list = $('#fileList'),
+        // 优化retina, 在retina下这个值是2
+        ratio = window.devicePixelRatio || 1,
+
+        // 缩略图大小
+        thumbnailWidth = 100 * ratio,
+        thumbnailHeight = 100 * ratio,
+
+        // Web Uploader实例
+        uploader;
+
+    // 初始化Web Uploader
+    uploader = WebUploader.create({
+
+        // 自动上传。
+        auto: true,
+
+        // swf文件路径
+        swf: 'js/Uploader.swf',
+
+        // 文件接收服务端。
+        server: 'upload.html',
+
+        // 选择文件的按钮。可选。
+        // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+        pick: '#filePicker',
+
+        // 只允许选择文件，可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/*'
+        }
+    });
+
+    // 当有文件添加进来的时候(文件加入队列)
+    uploader.on( 'fileQueued', function( file ) {
+        
+        var $li = $(
+                '<div id="' + file.id + '" class="file-item thumbnail">' +
+                    '<img>' +
+                    '<div class="info">' + file.name + '</div>' +
+                '</div>'
+                ),
+            $img = $li.find('img');
+        $list.html($li)
+        $list.append( $li );
+
+        // 创建缩略图
+        uploader.makeThumb( file, function( error, src ) {
+            if ( error ) {
+                alert("不能预览")
+                $img.replaceWith('<span>不能预览</span>');
+                return;
+            }
+
+            $img.attr( 'src', src );
+        }, thumbnailWidth, thumbnailHeight );
+    });
+
+    // 文件上传过程中创建进度条实时显示。
+    uploader.on( 'uploadProgress', function( file, percentage ) {
+        var $li = $( '#'+file.id ),
+            $percent = $li.find('.progress span');
+
+        // 避免重复创建
+        if ( !$percent.length ) {
+            $percent = $('<p class="progress"><span></span></p>')
+                    .appendTo( $li )
+                    .find('span');
+        }
+
+        $percent.css( 'width', percentage * 100 + '%' );
+    });
+
+    // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+    uploader.on( 'uploadSuccess', function( file ) {
+        
+        $( '#'+file.id ).addClass('upload-state-done');
+    });
+
+    // 文件上传失败，现实上传出错。
+    uploader.on( 'uploadError', function( file ) {
+        var $li = $( '#'+file.id ),
+            $error = $li.find('div.error');
+
+        // 避免重复创建
+        if ( !$error.length ) {
+            $error = $('<div class="error"></div>').appendTo( $li );
+        }
+
+        $error.text('上传失败');
+    });
+
+    // 完成上传完了，成功或者失败，先删除进度条。
+    uploader.on( 'uploadComplete', function( file ) {
+        $( '#'+file.id ).find('.progress').remove();
+    });
+    // -----------------------判断是否上传成功及获取后台返回的数据---------------------------
+    uploader.on('uploadAccept',function(file, response){
+    if ( hasError ) {
+        // 通过return false来告诉组件，此文件上传有错。
+        return false;
+    }
+    })
+});
 
