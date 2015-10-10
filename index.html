@@ -19,9 +19,18 @@
         <ul class="pull_right"> 
           <li><a href="#">首页</a></li>
           <li>
-            <a class="nickname hide" href="#"></a>
+
+
+             <!-- 与后台交互 -->
+
+            <a class="nickname hide" href="personpage.html"></a>
+
+             <!-- 与后台交互 -->
+
+
+
             <ul class="nickLink hide">
-              <li><a class="goperpage" href="#">个人主页</a></li>
+              <li><a class="goperpage" href="personpage.html">个人主页</a></li>
               <li><a class="gocancel" href="#">退出登录</a></li>
             </ul>
           </li>
@@ -58,6 +67,7 @@
     </div>
   <div class="sort pull_right">
     <p class="sortTitle">TOP榜</p>
+    <!-- <p class="sortTitle">TOP榜</p>
     <ul class="pull_left">
       <li><a href="#">黄油小面包</a></li>
       <li><a href="#">黄油小面包</a></li>
@@ -65,7 +75,7 @@
       <li><a href="#">黄油小面包</a></li>
       <li><a href="#">黄油小面包</a></li>
       <li><a href="#">黄油小面包</a></li>
-    </ul>
+    </ul> -->
   </div>
 </div>
 <div class="clearfix"></div>
@@ -81,11 +91,13 @@
 <!-- 遮盖 -->
 <div class="bodyMask hide">  
 </div>
-  <div class="publishAlert">
+  <div class="publishAlert hide">
     <p class="notice">有什么新发现呀</p> 
     <div class="addimg"> 
       <form id="form1" runat="server" method="post" enctype="multipart/form-data">
-         <input type="file">
+         <input name="uploadfile" type="file"><span class="upnotice"></span>
+         <input name="uploadfile" type="file"><span class="upnotice"></span>
+         <input name="uploadfile" type="file"><span class="upnotice"></span>
       </form>
       <!-- <div id="uploader-demo">
         <div id="filelist" class="uploader-list"></div>
@@ -113,8 +125,16 @@
       </div>
     </div>
     <input type="button"  value="close" class="boxclose">
-    <input type="button" value="发表" class="fabiao">
+    <input type="button" value="发表" class="boxpublish">
   </div>
+
+<div class="exit hide">
+  <p>您真的要退出本次编辑吗</p>
+  <input type="button" value="是" name="yes">
+   <input type="button" value="否" name="no">
+</div>
+
+
    <script type="text/html" id="mytest">
      {{each dynamic as value i}} 
     <div class="messagge pull_left">
@@ -132,7 +152,7 @@
            <p class="descrip pull_right">{{value.descrip}}</p>
          <div class="clearfix"></div>
         <span class="detai">*</span>
-        <span class="tag">value.tag</span>
+        <span class="tag">{{value.tag}}</span>
 
         <ul class="excute">
         <li><a href="#">❤</a></li>
@@ -147,12 +167,22 @@
     </div>
     {{/each}}
     </script>
+
+ <script type="text/html" id="topBar">
+     {{each content as value i}} 
+    
+    <ul class="pull_left">
+      <li><a href="#">{{value.name}}</a></li>
+      
+    </ul>
+    {{/each}}
+    </script>
+
     <script type="text/javascript" src="js/iframe/jquery-1.8.3.min.js" ></script>
     <script type="text/javascript" src="js/iframe/template.js"></script>
     <script type="text/javascript" src="js/animation/fenye.js"></script>
      <script type="text/javascript" src="js/index.js"></script>
-     <script type="text/javascript" src="js/webuploader.js"></script>
-     <script type="text/javascript" src="js/upload.js"></script>
+     <script type="text/javascript" src="js/publish.js"></script>
      <script type="text/javascript" src="js/animation/expression.js"></script>
   </body>
 </html>

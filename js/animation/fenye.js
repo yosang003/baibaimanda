@@ -1,14 +1,25 @@
+var config={
+	url1:'testjson/indextest.json'
+}
+
+
 // --------------------------------------分页------------------------------------------
 $(function(){
 	//根据总页数判断，如果小于5页，则显示所有页数，如果大于5页，则显示5页。根据当前点击的页数生成
 	//每页5条
 	var pageCount = 11;//模拟后台总页数
+
+	
+
 	//生成分页按钮
 	if(pageCount>5){
 		page_icon(1,5,0);
 	}else{
 		page_icon(1,pageCount,0);
 	}
+
+
+	getData(config.url1,1);//默认当前是第一页
 	
 	//点击分页按钮触发
 	$("#pageGro li").live("click",function(){
@@ -56,6 +67,11 @@ $(function(){
 
 //点击跳转页面
 function pageGroup(pageNum,pageCount){
+
+     
+    var url2='testjson/indextest2.json';
+	
+	getData(url2,pageNum);
 	switch(pageNum){
 		case 1:
 			page_icon(1,5,0);
@@ -86,10 +102,9 @@ function page_icon(page,count,eq){
 	$("#pageGro ul li").eq(eq).addClass("on");
 	// 根据当前的页数选择要显示的动态
 	//(page-1)*5~(page-1)*5+5,将当前页数发给后台，向后台取数据
-	
 
-var url1='testjson/indextest.json';
-getData(url1,page);
+
+
 
 
 
@@ -142,6 +157,8 @@ getData(url1,page);
 
 //上一页
 function pageUp(pageNum,pageCount){
+	var curPage=pageNum-1;
+	getData(config.url1,curPage);
 	switch(pageNum){
 		case 1:
 		break;
@@ -163,6 +180,8 @@ function pageUp(pageNum,pageCount){
 //下一页
 //pageNum是当前页数
 function pageDown(pageNum,pageCount){
+	var curPage=pageNum+1;
+	getData(config.url1,curPage);
 	switch(pageNum){
 		case 1:
 			page_icon(1,5,1);//到第2页（12345）
@@ -180,3 +199,7 @@ function pageDown(pageNum,pageCount){
 		break;
 	}
 }
+
+
+
+

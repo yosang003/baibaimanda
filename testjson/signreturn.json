@@ -1,6 +1,7 @@
 {
 	"ret":1,
+	"total":"11",//总页数
 	"username":"vivi",
-	"img":"img/portrait1.jpg",
-	"signature":"我是哟桑"
+	"img":"img/portrait1.jpg",//可在首页列表处加上图片
+	"signature":"我是哟桑"//可在首页列表处图片下加入描述
 }

@@ -120,22 +120,29 @@ $('#login-btn').on("click",function(){
 	var oksignin=function(email,pwd){
 		return true;
 	}()
-	if(oksignin==true){
+	if(oksignin){
 
 		var config={
 			email:email,
 			pwd:pwd
 		}
-		//向后台发送请求
+		//向后台发送请求，自带jsessionid
+		//这里并不需要后台返回数据，只是前端向后台提交数据，后台保存在session中，并在下一个页面调用相关信息（？此处的数据下一个页面中并未使用）
 		$.ajax({
 			url:'testjson/signreturn.json',
 			type:'GET',
 			 data:config,
 			dataType:'json',
 			success:function(data){
+
+				
 				if(data.ret==1)
 				{
+
 					alert("登录成功")
+
+
+					
 					//如果成功后台将跳转至新的页面,与此同时后台在相应中设置cookie jsessionid的值
 					// ------这里是前端设置的jsessionid的值，这个cookie应该由后台设置，这里是模拟
 	                 setcookie("jsessionid","1");

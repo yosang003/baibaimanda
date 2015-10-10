@@ -294,7 +294,7 @@ footer{
 	width: 560px;
 	height: 495px;
 	background-color: #a9cedc;
-	display: none;
+	
 	/*height: 0;*/
 	/*overflow: hidden;*/
 }
@@ -320,6 +320,17 @@ footer{
 	margin: 0 auto;
 	margin-top: 10px;
 }
+
+.exit{
+	position: absolute;
+	left: 20%;
+	top: 40%;
+	z-index: 100;
+	width: 500px;
+	height: 300px;
+	background-color: pink;
+}
+
 
 /*-----------------------------表情---------------------------------------*/
   .comment-main{
